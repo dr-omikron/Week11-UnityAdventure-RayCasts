@@ -4,7 +4,7 @@ namespace Exercise1
 {
     public interface IRaycastEffect
     {
-        void StartEffect(Collider hitCollider);
+        void PrepareEffect(Collider hitCollider);
 
         void ExecuteEffect(Vector3 hitPoint, Collider hitCollider);
 

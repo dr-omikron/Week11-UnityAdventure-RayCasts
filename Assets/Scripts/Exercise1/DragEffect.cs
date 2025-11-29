@@ -6,7 +6,7 @@ namespace Exercise1
     {
         private IDraggable _draggable;
 
-        public void StartEffect(Collider hitCollider) => _draggable = hitCollider.GetComponent<IDraggable>();
+        public void PrepareEffect(Collider hitCollider) => _draggable = hitCollider.GetComponent<IDraggable>();
 
         public void ExecuteEffect(Vector3 hitPoint, Collider hitCollider)
         {

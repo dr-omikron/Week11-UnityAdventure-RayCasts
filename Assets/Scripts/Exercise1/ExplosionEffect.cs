@@ -28,7 +28,7 @@ namespace Exercise1
             Object.Instantiate(_explosionParticles, hitPoint, Quaternion.identity);
         }
 
-        public void StartEffect(Collider hitCollider) { }
+        public void PrepareEffect(Collider hitCollider) { }
         public void EndEffect() { }
     }
 }
