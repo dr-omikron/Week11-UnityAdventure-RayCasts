@@ -10,14 +10,15 @@ namespace Exercise1
         [SerializeField] private LayerMask _interactableMask;
         [SerializeField] private LayerMask _groundMask;
         [SerializeField] private float _explosionRadius;
+        [SerializeField] private float _explosionForce;
         [SerializeField] private ParticleSystem _explosionParticles;
 
         private CameraSwitcher _cameraSwitcher;
         private Raycaster _raycaster;
         private InputManager _inputManager;
 
-        private IRaycastEffect _dragEffect;
-        private IRaycastEffect _explosionEffect;
+        private DragEffect _dragEffect;
+        private ExplosionEffect _explosionEffect;
 
         private void Awake()
         {
@@ -26,7 +27,7 @@ namespace Exercise1
             _inputManager = new InputManager();
 
             _dragEffect = new DragEffect();
-            _explosionEffect = new ExplosionEffect(_explosionRadius, _explosionParticles);
+            _explosionEffect = new ExplosionEffect(_explosionRadius, _explosionForce, _explosionParticles);
         }
 
         private void Update()
@@ -41,35 +42,24 @@ namespace Exercise1
 
             if (_inputManager.IsDraggingStart)
             {
-                _raycaster.SetRaycastEffect(_dragEffect);
-                CastRayFromCameraToPrepare(Input.mousePosition, _interactableMask);
+                if(_raycaster.CastRayFromCamera(Input.mousePosition, _interactableMask, out RaycastHit hit))
+                    _dragEffect.PrepareDrag(hit.collider);
             }
 
             if (_inputManager.IsDragging)
             {
-                CastRayFromCameraToExecute(Input.mousePosition, _groundMask);
+                if(_raycaster.CastRayFromCamera(Input.mousePosition, _groundMask, out RaycastHit hit))
+                    _dragEffect.Drag(hit.point);
             }
 
             if (_inputManager.IsDraggingEnd)
-                _raycaster.CastToEndEffect();
+                _dragEffect.EndDrag();
 
             if (_inputManager.IsExplode)
             {
-                _raycaster.SetRaycastEffect(_explosionEffect);
-                CastRayFromCameraToExecute(Input.mousePosition, _groundMask);
+                if(_raycaster.CastRayFromCamera(Input.mousePosition, _groundMask, out RaycastHit hit))
+                    _explosionEffect.Explode(hit.point);
             }
-        }
-
-        private void CastRayFromCameraToExecute(Vector3 mousePosition, LayerMask raycastMask)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            _raycaster.CastToExecuteEffect(ray.origin, ray.direction, raycastMask);
-        }
-
-        private void CastRayFromCameraToPrepare(Vector3 mousePosition, LayerMask raycastMask)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            _raycaster.CastToPrepareEffect(ray.origin, ray.direction, raycastMask);
         }
     }
 }

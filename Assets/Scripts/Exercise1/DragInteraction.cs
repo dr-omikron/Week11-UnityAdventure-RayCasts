@@ -14,7 +14,7 @@ namespace Exercise1
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void StartDrag(Vector3 hitPosition)
+        public void StartDrag()
         {
             _rigidbody.isKinematic = true;
         }
@@ -25,7 +25,7 @@ namespace Exercise1
             _rigidbody.MovePosition(movePosition);
         }
 
-        public void EndDrag(Vector3 hitPosition)
+        public void EndDrag()
         {
             _rigidbody.isKinematic = false;
         }

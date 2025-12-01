@@ -4,10 +4,10 @@ namespace Exercise1
 {
     public interface IDraggable
     {
-        void StartDrag(Vector3 hitPosition);
+        void StartDrag();
 
         void Drag(Vector3 hitPosition);
 
-        void EndDrag(Vector3 hitPosition);
+        void EndDrag();
     }
 }

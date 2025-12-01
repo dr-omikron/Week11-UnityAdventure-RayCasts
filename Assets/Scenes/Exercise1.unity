@@ -2605,7 +2605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!65 &653190567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3090,6 +3089,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _explosionRadius: 2
+  _explosionForce: 5
   _explosionParticles: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473,
     type: 3}
 --- !u!4 &880173049
@@ -3575,7 +3575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!64 &1142173158
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3764,7 +3763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!64 &1162905174
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3844,7 +3842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!65 &1276224331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4879,7 +4876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!64 &1715920289
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5068,7 +5064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!64 &1731020085
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6181,7 +6176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!64 &2015216108
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6646,7 +6640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55ba1999b14f44fae1a271dd1faf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 10
 --- !u!64 &2093937383
 MeshCollider:
   m_ObjectHideFlags: 0

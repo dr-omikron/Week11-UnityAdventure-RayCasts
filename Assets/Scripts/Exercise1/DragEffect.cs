@@ -2,18 +2,28 @@ using UnityEngine;
 
 namespace Exercise1
 {
-    public class DragEffect : IRaycastEffect
+    public class DragEffect
     {
         private IDraggable _draggable;
 
-        public void PrepareEffect(Collider hitCollider) => _draggable = hitCollider.GetComponent<IDraggable>();
+        public void PrepareDrag(Collider hitCollider)
+        {
+            _draggable = hitCollider.GetComponent<IDraggable>();
 
-        public void ExecuteEffect(Vector3 hitPoint, Collider hitCollider)
+            if (_draggable != null)
+                _draggable.StartDrag();
+        }
+
+        public void Drag(Vector3 hitPoint)
         {
             if (_draggable != null)
                 _draggable.Drag(hitPoint);
         }
 
-        public void EndEffect() => _draggable = null;
+        public void EndDrag()
+        {
+            _draggable.EndDrag();
+            _draggable = null;
+        }
     }
 }
